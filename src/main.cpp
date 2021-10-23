@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
         std::cout << "ERROR: Incorrect usage, expected a .hack file." << std::endl;
     }
 
-    Parser parser = Parser("FilePath");
+    Parser parser = Parser(argv[1]);
 
     return 0;
 }

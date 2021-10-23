@@ -7,10 +7,10 @@ Defines an instruction in Hack Assembly.
 #pragma once
 #include <string>
 
-// Abstract base class for an instruction.
+// Base class for an instruction.
 class Instruction {
     public:
-        virtual std::string getBinaryTranslation() = 0;
+        std::string getBinaryTranslation();
 };
 
 class AInstruction : public Instruction {

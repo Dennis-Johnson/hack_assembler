@@ -1,9 +1,8 @@
 #include "../includes/symbolTable.hpp"
+#include "../includes/util.hpp"
 #include <iostream>
 #include <string>
 #include <utility>
-#include <cassert>
-#define assertm(exp, msg) assert(((void)msg, exp))
 
 SymbolTable::SymbolTable(){
     std::cout << "Symbol Table setup\n";
