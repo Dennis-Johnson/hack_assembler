@@ -30,8 +30,35 @@ bool Parser::hasMoreCommands (){
 }
 
 Instruction Parser::getNextCommand(){
-    Instruction inst = AInstruction("SomeLine");
-    return inst;
+    Instruction instr;
+
+    std::string line;
+    // Skip over lines with only whitespace, comments, or labels.
+    while((line = getStrippedLine(currentLineNumber)) == "")
+        currentLineNumber++;
+
+    // This is an A instruction.
+    if (line.front() == '@'){
+        if (isdigit(line.at(1))){
+            instr = AInstruction(line.substr(1));
+        }
+
+        // This is a symbol
+        else{
+            std::string symbolName = line.substr(1);
+            if(!symbolTable.contains(symbolName))
+                symbolTable.addSymbol(symbolName);
+
+            instr = AInstruction("@" + std::to_string(symbolTable.getAddress(symbolName)));
+        }
+    }
+
+    // This is a C instruction.
+    else
+        instr = CInstruction(line);
+
+    currentLineNumber++;
+    return instr;
 }
 
 // Strips a line of comments and whitespace and returns it.
