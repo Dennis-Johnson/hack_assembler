@@ -5,8 +5,6 @@
 #include <utility>
 
 SymbolTable::SymbolTable(){
-    std::cout << "Symbol Table setup\n";
-
     // Add predefined symbols
     symbols.insert({{"SP", 0}, {"LCL", 1}, {"ARG", 2}, {"THIS", 3}, {"THAT", 4},
                     {"R0", 0}, {"R1", 1}, {"R2", 2}, {"R3", 3}, {"R4", 4},
@@ -14,8 +12,8 @@ SymbolTable::SymbolTable(){
                     {"R10", 10}, {"R11", 11}, {"R12", 12}, {"R13", 13}, {"R14", 14},
                     {"R15", 15}, {"SCREEN", 16384}, {"KBD", 24576}});
 
-    // Next available RAM address in decimal after the predefined symbols. Initially 16.
-    nextAvailableAddress = symbols.size();
+    // Next available RAM address in decimal after the predefined symbols.
+    nextAvailableAddress = 16;
 }
 
 void SymbolTable::addSymbol(const std::string symbol, const int address){
@@ -35,4 +33,10 @@ bool SymbolTable::contains(const std::string symbol){
 
 int SymbolTable::getAddress(const std::string symbol){
     return symbols[symbol];
+}
+
+void SymbolTable::displayTable() {
+    for (auto const &pair: symbols) {
+        std::cout << "{" << pair.first << ": " << pair.second << "}\n";
+    }
 }

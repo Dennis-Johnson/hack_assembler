@@ -21,4 +21,6 @@ public:
 
     // Lookup the RAM address for the given symbol.
     int getAddress(const std::string symbol);
+
+    void displayTable();
 };
