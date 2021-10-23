@@ -9,6 +9,7 @@
 *
 AInstruction implementations
 */
+AInstruction::AInstruction(){}
 AInstruction::AInstruction(std::string line){
     // Ignore the leading '@' sign in the A instruction.
     value = stoi(line.substr(1));
@@ -23,15 +24,17 @@ std::string AInstruction::getBinaryTranslation(){
 *
 CInstruction implementations
 */
-CInstruction::CInstruction(std::string line){
+CInstruction::CInstruction(){}
+CInstruction::CInstruction(std::string line)
+{
     size_t found = line.find("=");
-    if (found != std::string::npos){
+    if (found == std::string::npos){
         // Dest field is null, only comp and jump fields.
         dest = "null";
 
         size_t indx = line.find(';');
         comp = Util::strip(line.substr(0, indx));
-        jump = Util::strip(line.substr(indx));
+        jump = Util::strip(line.substr(indx + 1));
     }
 
     // Jump field is null, only comp and dest fields.
@@ -40,7 +43,7 @@ CInstruction::CInstruction(std::string line){
 
         size_t indx = line.find('=');
         dest = Util::strip(line.substr(0, indx));
-        comp = Util::strip(line.substr(indx));
+        comp = Util::strip(line.substr(indx + 1));
     }
 }
 
