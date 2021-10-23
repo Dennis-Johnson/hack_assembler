@@ -1,5 +1,4 @@
-#ifndef PARSER_HPP_
-#define PARSER_HPP_
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -14,5 +13,3 @@ class Parser {
 public:
     Parser(std::string filePath);
 };
-
-#endif //PARSER_HPP_

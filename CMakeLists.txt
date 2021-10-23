@@ -6,8 +6,8 @@ project(hack-assembler)
 # creates the variable EXEC and sets it to assembler
 set(EXEC assembler)
 
-# set the C++11 standard
-set(CMAKE_CXX_STANDARD 11)
+# set the C++20 standard
+set(CMAKE_CXX_STANDARD 20)
 
 # I../includes
 include_directories(includes)

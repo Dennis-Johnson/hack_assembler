@@ -129,6 +129,30 @@ assembler/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/build
 .PHONY : assembler/fast
 
+src/hackSpec.o: src/hackSpec.cpp.o
+.PHONY : src/hackSpec.o
+
+# target to build an object file
+src/hackSpec.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/src/hackSpec.cpp.o
+.PHONY : src/hackSpec.cpp.o
+
+src/hackSpec.i: src/hackSpec.cpp.i
+.PHONY : src/hackSpec.i
+
+# target to preprocess a source file
+src/hackSpec.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/src/hackSpec.cpp.i
+.PHONY : src/hackSpec.cpp.i
+
+src/hackSpec.s: src/hackSpec.cpp.s
+.PHONY : src/hackSpec.s
+
+# target to generate assembly for a file
+src/hackSpec.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/src/hackSpec.cpp.s
+.PHONY : src/hackSpec.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -210,6 +234,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... assembler"
+	@echo "... src/hackSpec.o"
+	@echo "... src/hackSpec.i"
+	@echo "... src/hackSpec.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <utility>
+#include <cassert>
+#define assertm(exp, msg) assert(((void)msg, exp))
 
 SymbolTable::SymbolTable(){
     std::cout << "Symbol Table setup\n";
@@ -15,4 +17,23 @@ SymbolTable::SymbolTable(){
 
     // Next available RAM address in decimal after the predefined symbols. Initially 16.
     nextAvailableAddress = symbols.size();
+}
+
+void SymbolTable::addSymbol(const std::string symbol, const int address){
+    assertm(nextAvailableAddress < 16384, "Symbol Table is full");
+    symbols.insert({symbol, address});
+}
+
+void SymbolTable::addSymbol(const std::string symbol){
+    assertm(nextAvailableAddress < 16384, "Symbol Table is full");
+    symbols.insert({symbol, nextAvailableAddress});
+    nextAvailableAddress++;
+}
+
+bool SymbolTable::contains(const std::string symbol){
+    return symbols.contains(symbol);
+}
+
+int SymbolTable::getAddress(const std::string symbol){
+    return symbols[symbol];
 }
