@@ -43,7 +43,7 @@ namespace HackSpec{
     }
     std::string translateJumpField(std::string jumpKey){
         if (jumpField.contains(jumpKey))
-            return compField[jumpKey];
+            return jumpField[jumpKey];
         throw std::invalid_argument("The jump mnemonic is invalid.");
     }
 }
