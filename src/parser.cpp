@@ -1,3 +1,9 @@
+/*
+parser.cpp
+
+A simple parser that translates line by line.
+*/
+
 #include "../includes/parser.hpp"
 #include "../includes/symbolTable.hpp"
 #include "../includes/util.hpp"
@@ -21,7 +27,7 @@ Parser::Parser(std::string filePath){
     currentLineNumber = 0;
     symbolTable = SymbolTable();
 
-    // First pass to add just labels to symbol table.
+    // First pass to add just labels to the symbol table. Other symbols are added while parsing.
     addLabels();
 }
 

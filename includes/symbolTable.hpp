@@ -1,5 +1,10 @@
-#pragma once
+/*
+symbolTable.hpp
 
+Used to store symbols during translation.
+*/
+
+#pragma once
 #include <string>
 #include <unordered_map>
 

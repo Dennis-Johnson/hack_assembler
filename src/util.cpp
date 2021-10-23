@@ -1,3 +1,9 @@
+/*
+utils.cpp
+
+Some Utilities.
+*/
+
 #include "../includes/util.hpp"
 #include <string>
 

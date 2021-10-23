@@ -1,3 +1,10 @@
+/*
+symbolTable.cpp
+
+Used to store symbols during translation.
+A symbol can be predefined, a variable, or a label.
+*/
+
 #include "../includes/symbolTable.hpp"
 #include "../includes/util.hpp"
 #include <iostream>
@@ -12,7 +19,7 @@ SymbolTable::SymbolTable(){
                     {"R10", 10}, {"R11", 11}, {"R12", 12}, {"R13", 13}, {"R14", 14},
                     {"R15", 15}, {"SCREEN", 16384}, {"KBD", 24576}});
 
-    // Next available RAM address in decimal after the predefined symbols.
+    // Next available RAM address after the predefined symbols.
     nextAvailableAddress = 16;
 }
 

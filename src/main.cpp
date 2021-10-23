@@ -1,3 +1,10 @@
+/*
+main.cpp
+
+Drives an assembler for the Hack language.
+Translates the given .asm file to a .hack file.
+*/
+
 #include "../includes/parser.hpp"
 #include <iostream>
 #include <variant>
@@ -5,7 +12,8 @@
 #include <filesystem>
 
 int main(int argc, char* argv[]) {
-    std::string fileName;
+    
+    std::string fileName; 
     if (argc == 2){
         // Get filename
         fileName = std::filesystem::path(argv[1]).stem();

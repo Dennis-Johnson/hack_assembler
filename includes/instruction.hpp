@@ -13,6 +13,7 @@ class Instruction {
         virtual std::string getBinaryTranslation() = 0;
 };
 
+// Addressing Instruction
 class AInstruction : public Instruction {
     int value;
 
@@ -22,6 +23,7 @@ public:
     std::string getBinaryTranslation();
 };
 
+// Compute Instruction
 class CInstruction : public Instruction {
     std::string dest;
     std::string comp;

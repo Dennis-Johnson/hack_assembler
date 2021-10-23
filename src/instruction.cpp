@@ -1,3 +1,9 @@
+/*
+instruction.cpp
+
+Implemented an instruction in Hack Assembly.
+*/
+
 #include "../includes/instruction.hpp"
 #include "../includes/hackSpec.hpp"
 #include "../includes/util.hpp"
@@ -5,10 +11,7 @@
 #include <bitset>
 #include <cctype>
 
-/*
-*
-AInstruction implementations
-*/
+// Addressing Instruction implementations
 AInstruction::AInstruction(){}
 AInstruction::AInstruction(std::string line){
     // Ignore the leading '@' sign in the A instruction.
@@ -20,10 +23,7 @@ std::string AInstruction::getBinaryTranslation(){
     return std::bitset<16>(value).to_string();
 }
 
-/*
-*
-CInstruction implementations
-*/
+// Compute Instruction implementations
 CInstruction::CInstruction(){}
 CInstruction::CInstruction(std::string line)
 {
@@ -37,8 +37,8 @@ CInstruction::CInstruction(std::string line)
         jump = Util::strip(line.substr(indx + 1));
     }
 
-    // Jump field is null, only comp and dest fields.
     else {
+        // Jump field is null, only comp and dest fields.
         jump = "null";
 
         size_t indx = line.find('=');
@@ -48,5 +48,6 @@ CInstruction::CInstruction(std::string line)
 }
 
 std::string CInstruction::getBinaryTranslation(){
+    // Initial 1 is the opCode for C instruction. The remaining '11' are ignored bits. Concat the rest.
     return "111" + HackSpec::translateCompField(comp) + HackSpec::translateDestField(dest) + HackSpec::translateJumpField(jump);
 }

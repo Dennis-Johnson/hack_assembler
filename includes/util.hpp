@@ -1,7 +1,12 @@
+/*
+utils.hpp
+
+Some utilities.
+*/
+
 #pragma once
 #include <string>
 #include <cassert>
-
 
 namespace Util{
     #define assertm(exp, msg) assert(((void)msg, exp))
