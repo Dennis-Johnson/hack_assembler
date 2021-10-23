@@ -29,10 +29,10 @@ bool Parser::hasMoreCommands (){
     return currentLineNumber < inputLines.size();
 }
 
-Instruction Parser::getNextCommand(){
-    Instruction instr;
-
+std::variant<AInstruction, CInstruction>  Parser::getNextCommand(){
+    std::variant<AInstruction, CInstruction> instr;
     std::string line;
+    
     // Skip over lines with only whitespace, comments, or labels.
     while((line = getStrippedLine(currentLineNumber)) == "")
         currentLineNumber++;
@@ -40,7 +40,7 @@ Instruction Parser::getNextCommand(){
     // This is an A instruction.
     if (line.front() == '@'){
         if (isdigit(line.at(1))){
-            instr = AInstruction(line.substr(1));
+            instr = AInstruction(line);
         }
 
         // This is a symbol

@@ -3,6 +3,7 @@
 #include "instruction.hpp"
 #include <iostream>
 #include <string>
+#include <variant>
 #include <vector>
 
 class Parser {
@@ -15,6 +16,6 @@ class Parser {
 public:
     Parser(std::string filePath);
     bool hasMoreCommands();
-    Instruction getNextCommand();
+    std::variant<AInstruction, CInstruction> getNextCommand();
     void addLabels();
 };
